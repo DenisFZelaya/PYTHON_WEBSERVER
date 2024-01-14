@@ -9,7 +9,7 @@
  - CRUD Mockup
  - JWT
  - DB Connect
- -  Middleware
+ - Middleware
  - Manejo de errores
  - Validacion de datos
  - Testing
