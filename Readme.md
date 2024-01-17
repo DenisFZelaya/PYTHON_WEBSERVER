@@ -12,8 +12,9 @@
 [ ] DB Connect
 [x] Middleware
 [x] Rutas protegidas por roles
+[ ] Swagger
 [ ] Escribir en archivos
-[ ] Manejo de errores
+[ ] ErrorHandler
 [ ] Validacion de datos
 [ ] Testing
 [ ] Manejo de archivos
