@@ -12,13 +12,14 @@
 [ ] DB Connect
 [x] Middleware
 [x] Rutas protegidas por roles
-[ ] Swagger
-[ ] Escribir en archivos
+[x] Swagger
+[ ] Escribir en archivos de texto
 [x] ErrorHandler
 [ ] Validacion de datos
+[ ] Docker
 [ ] Testing
 [ ] Manejo de archivos
-[ ] Sessiones y Cokies
+[ ] Sessiones y Cookies
 [ ] Seguridad en Flask
 [ ] Despliege
 [ ] Migraciones
@@ -31,3 +32,5 @@
 # Instalaciones
 pip install flask
 pip install Flask-JWT-Extended
+pip3 install flask_swagger_ui
+pip install flasgger

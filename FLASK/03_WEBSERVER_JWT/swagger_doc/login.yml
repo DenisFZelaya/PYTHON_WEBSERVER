@@ -1,0 +1,19 @@
+# swagger_doc/login.yml
+
+---
+tags:
+  - name: "Auth"
+parameters:
+  - in: "body"
+    name: "body"
+    required: true
+    schema:
+      type: "object"
+      properties:
+        username:
+          type: "string"
+        password:
+          type: "string"
+responses:
+  200:
+    description: "OK"

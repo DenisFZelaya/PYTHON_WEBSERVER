@@ -2,11 +2,26 @@ from flask import Flask, jsonify, request, abort
 from flask_jwt_extended import JWTManager, verify_jwt_in_request, create_access_token, jwt_required, get_jwt_identity, get_jwt
 from base64 import b64decode
 from datetime import timedelta
+from flask_swagger_ui import get_swaggerui_blueprint
+from flasgger import Swagger, swag_from
+
+SWAGGER_URL="/swagger"
+API_URL="/static/swagger.json"
+
+swagger_ui_blueprint = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': 'Access API'
+    }
+)
 
 app = Flask(__name__)
 
 app.config["JWT_SECRET_KEY"] = 'my_secret_key'
+app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
 jwt = JWTManager(app)
+swagger = Swagger(app)
 
 
 def extract_credentials(authorization_header):
@@ -33,7 +48,9 @@ def middleware_general():
     print("ENDPOINT: ", request.endpoint)
 
     try:
-        if request.endpoint != 'login':
+        if request.endpoint != 'login' and request.endpoint != "swagger_ui.show" and request.endpoint != "static" :
+        # if request.endpoint != 'login' and not request.path.startswith('/swagger'):
+            print("ENTRA")
             verify_jwt_in_request()
             roles = get_jwt()["roles"]
             roles_usuario = roles
@@ -59,6 +76,7 @@ def middleware_general():
 
 # En login se genera el login
 @app.route("/api/login", methods=["POST"])
+@swag_from('swagger_doc/login.yml')
 def login():
 
     # Verificar la existencia del encabezado de autorización
@@ -104,9 +122,28 @@ def login():
         return jsonify({"error": "Credenciales incorrectas"}), 401
 
 
-@app.route('/protegido', methods=['GET'])
+@app.route('/api/protegido', methods=['GET'])
 @jwt_required()
 def protegido():
+    """
+    Ruta protegida que requiere un token JWT válido.
+
+    ---
+    tags:
+      - "Auth"
+    responses:
+      200:
+        description: "OK"
+        schema:
+          type: "object"
+          properties:
+            logged_in_as:
+              type: "string"
+            user_info:
+              type: "object"
+            roles:
+              type: "array"
+    """
     # Obtener la identidad del usuario y las claims adicionales del token JWT
     current_user = get_jwt_identity()
     additional_claims = get_jwt()
@@ -115,7 +152,7 @@ def protegido():
     return jsonify(logged_in_as=current_user, user_info=additional_claims, roles=roles), 200
 
 
-@app.route('/rrhh', methods=['GET'])
+@app.route('/api/rrhh', methods=['GET'])
 @jwt_required()
 def rrhh():
     # Obtener la identidad del usuario y las claims adicionales del token JWT
