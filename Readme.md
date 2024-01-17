@@ -8,7 +8,7 @@
 [x] Parametros header
 [x] Parametros body
 [x] Verbos Mockup
-[ ] JWT - Login, Ruta
+[x] JWT - Login, Ruta
 [ ] DB Connect
 [x] Middleware
 [x] Rutas protegidas por roles
@@ -30,3 +30,4 @@
 
 # Instalaciones
 pip install flask
+pip install Flask-JWT-Extended
