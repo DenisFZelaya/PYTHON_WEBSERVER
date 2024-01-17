@@ -14,7 +14,7 @@
 [x] Rutas protegidas por roles
 [ ] Swagger
 [ ] Escribir en archivos
-[ ] ErrorHandler
+[x] ErrorHandler
 [ ] Validacion de datos
 [ ] Testing
 [ ] Manejo de archivos
@@ -26,3 +26,7 @@
 [ ] Web Sockets
 [ ] Documentaciones
 [ ] Real time apps
+
+
+# Instalaciones
+pip install flask
