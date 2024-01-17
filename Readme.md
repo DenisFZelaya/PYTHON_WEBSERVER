@@ -16,7 +16,7 @@
 [ ] Escribir en archivos de texto
 [x] ErrorHandler
 [ ] Validacion de datos
-[ ] Docker
+[x] Docker
 [ ] Testing
 [ ] Manejo de archivos
 [ ] Sessiones y Cookies
@@ -34,3 +34,8 @@ pip install flask
 pip install Flask-JWT-Extended
 pip3 install flask_swagger_ui
 pip install flasgger
+
+# DOCKER
+docker-compose down  # Detener y eliminar contenedores existentes
+docker-compose build  # Reconstruir la imagen
+docker-compose up     # Iniciar el contenedor actualizado

@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    # command: bash -c "pip install --no-cache-dir -r requirements.txt && python app.py"
+    # Puedes agregar más configuraciones según sea necesario
