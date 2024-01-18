@@ -9,19 +9,23 @@
 [x] Parametros body
 [x] Verbos Mockup
 [x] JWT - Login, Ruta
-[ ] DB Connect
+[x] Docker
 [x] Middleware
 [x] Rutas protegidas por roles
 [x] Swagger
-[ ] Escribir en archivos de texto
 [x] ErrorHandler
-[ ] Validacion de datos
-[x] Docker
+[x] Escribir en archivos de texto
+[x] Extraer Informacion del request
+[x] Validacion de datos
+[ ] SQLAlchemy
+[ ] CORS
+[ ] CQRS
+[ ] Factory Pattern
 [ ] Testing
 [ ] Manejo de archivos
 [ ] Sessiones y Cookies
 [ ] Seguridad en Flask
-[ ] Despliege
+[x] Despliege
 [ ] Migraciones
 [ ] Extensiones
 [ ] Web Sockets
