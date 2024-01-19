@@ -18,6 +18,7 @@
 [x] Extraer Informacion del request
 [x] Validacion de datos
 [ ] SQLAlchemy
+[ ] Encrypt
 [ ] CORS
 [ ] CQRS
 [ ] Factory Pattern
